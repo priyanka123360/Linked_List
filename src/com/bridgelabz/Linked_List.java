@@ -30,13 +30,20 @@ public class Linked_List {
 		}
 		return isAdded;
 	}
-		
-		public void push(int data) {
-			Node newNode = new Node(data);
-			newNode.next = head;
-			head = newNode;
-	}
 
+	// public void push(int data) {
+	// Node newNode = new Node(data);
+	// newNode.next = head;
+	// head = newNode;
+	//}
+	
+	public void add_At_end(int data) {
+
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
+
+	}
 	public void print() {
 		if (head == null) {
 			System.out.println("linkedList is empty");
@@ -50,8 +57,5 @@ public class Linked_List {
 		}
 		System.out.println();
 	}
-
-	
-
 
 }
