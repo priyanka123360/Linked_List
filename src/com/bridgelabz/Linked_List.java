@@ -68,6 +68,21 @@ public class Linked_List {
 
 		return temp.key;
 	}
+	public int popLast() {
+		if(head==null) {
+			System.out.println(" Empty List");
+		}
+		
+		Node temp = head;
+		
+		if (temp.next != null) {
+			temp = temp.next;
+		}
+		
+		int popLastKey=temp.next.key;
+		temp.next=null;
+		return popLastKey;
+	}
 
 	public static void print() {
 		if (head == null) {
