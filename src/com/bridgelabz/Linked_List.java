@@ -1,7 +1,7 @@
 package com.bridgelabz;
 
 public class Linked_List {
-	Node head;
+	static Node head;
 
 	private class Node {
 		int key;
@@ -31,11 +31,11 @@ public class Linked_List {
 		return isAdded;
 	}
 
-	// public void push(int data) {
-	// Node newNode = new Node(data);
-	// newNode.next = head;
-	// head = newNode;
-	//}
+	 public static void push(int data) {
+	 Node newNode = new Node(data);
+	 newNode.next = head;
+	 head = newNode;
+	}
 	
 	public void add_At_end(int data) {
 
@@ -44,6 +44,28 @@ public class Linked_List {
 		head = newNode;
 
 	}
+	
+	public static void insert_At_Position(int position, int data) {
+		if(position<1) {
+			System.out.println("Invalide Position. ");
+		}
+		if(position==1) {
+			push(data);
+		}
+		 else {
+			Node newNode =new Node(data);
+			Node temp = head;
+			int count=1;
+			while(count<position-1) {
+				temp=temp.next;
+				count++;
+			}
+			Node current = temp.next;
+			temp.next = newNode;
+			newNode.next=current;
+		}
+	}
+	
 	public void print() {
 		if (head == null) {
 			System.out.println("linkedList is empty");
