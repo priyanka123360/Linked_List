@@ -13,9 +13,10 @@ public class Linked_List {
 
 	}
 
-	public boolean add(int i) {
+	public boolean add(int data) {
+
 		boolean isAdded = false;
-		Node newNode = new Node(i);
+		Node newNode = new Node(data);
 		if (head == null) {
 			head = newNode;
 			isAdded = true;
@@ -31,44 +32,46 @@ public class Linked_List {
 		return isAdded;
 	}
 
-	 public static void push(int data) {
-	 Node newNode = new Node(data);
-	 newNode.next = head;
-	 head = newNode;
-	}
-	
-	public void add_At_end(int data) {
-
+	  public static void push(int data) {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
-
 	}
-	
+
 	public static void insert_At_Position(int position, int data) {
-		if(position<1) {
-			System.out.println("Invalide Position. ");
+		if (position < 1) {
+			System.out.println("invalide position");
 		}
-		if(position==1) {
+		if (position == 1) {
 			push(data);
-		}
-		 else {
-			Node newNode =new Node(data);
+		} else {
+			Node newNode = new Node(data);
 			Node temp = head;
-			int count=1;
-			while(count<position-1) {
-				temp=temp.next;
+			int count = 1;
+			while (count < position - 1) {
+				temp = temp.next;
 				count++;
 			}
 			Node current = temp.next;
 			temp.next = newNode;
-			newNode.next=current;
+			newNode.next = current;
 		}
 	}
-	
-	public void print() {
+
+	public int pop() {
+
 		if (head == null) {
-			System.out.println("linkedList is empty");
+			System.out.println("Empty List");
+		}
+		Node temp = head;
+		head = temp.next;
+
+		return temp.key;
+	}
+
+	public static void print() {
+		if (head == null) {
+			System.out.println("LinkedList is Empty.");
 		} else {
 			Node temp = head;
 			System.out.println("LinkedList is : ");
@@ -76,8 +79,9 @@ public class Linked_List {
 				System.out.print(temp.key + "-->");
 				temp = temp.next;
 			}
+
 		}
+
 		System.out.println();
 	}
-
 }
