@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class Linked_List {
+public class Linked_List implements LinkedList_Interface{
 	static Node head;
 
 	private class Node {
@@ -12,7 +12,7 @@ public class Linked_List {
 		}
 
 	}
-
+	@Override
 	public boolean add(int data) {
 
 		boolean isAdded = false;
@@ -31,14 +31,14 @@ public class Linked_List {
 		}
 		return isAdded;
 	}
-
-	  public static void push(int data) {
+	@Override
+	  public void push(int data) {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
 	}
-
-	public static void insert_At_Position(int position, int data) {
+	@Override
+	public void insert_At_Position(int position, int data) {
 		if (position < 1) {
 			System.out.println("invalide position");
 		}
@@ -57,7 +57,7 @@ public class Linked_List {
 			newNode.next = current;
 		}
 	}
-
+	@Override
 	public int pop() {
 
 		if (head == null) {
@@ -83,6 +83,22 @@ public class Linked_List {
 		temp.next=null;
 		return popLastKey;
 	}
+	@Override
+	public  void find_Node(int data) {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("List is empty");
+		} else {
+			while (temp != null) {
+				temp = temp.next;
+				if (temp.key == data) {
+					System.out.println(temp.key + " is found at Node: " + temp);
+					return ;
+				}
+			}
+			System.out.print(data + " is Not found");
+		}
+	}
 
 	public static void print() {
 		if (head == null) {
@@ -99,4 +115,5 @@ public class Linked_List {
 
 		System.out.println();
 	}
+
 }
